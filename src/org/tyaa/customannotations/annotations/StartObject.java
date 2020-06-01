@@ -13,6 +13,8 @@ import java.lang.annotation.Target;
 /**
  *
  * @author yurii
+ *
+ * Creation of the custom annotation @StartObject
  */
 @Target(value=ElementType.METHOD)
 @Retention(value= RetentionPolicy.RUNTIME)

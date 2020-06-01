@@ -18,8 +18,8 @@ public class SessionController {
     @Inject
     public Cookies mCookies;
     
-    //@Inject
-    //public String mString;
+    // @Inject
+    public String mString = "str";
     
     public void doWork(){
     

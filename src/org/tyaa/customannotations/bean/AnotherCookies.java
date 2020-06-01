@@ -10,7 +10,9 @@ package org.tyaa.customannotations.bean;
  * @author yurii
  */
 public class AnotherCookies {
-    
+
+     static int id;
+
      public void createCookie(){
        //
      }    

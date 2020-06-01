@@ -19,6 +19,7 @@ public class Cookies {
     @StartObject
      public void createCookie(){
         System.out.println("createCookie");
+        AnotherCookies.id = 1;
      }    
      @StopObject
      public void stopCookie(){

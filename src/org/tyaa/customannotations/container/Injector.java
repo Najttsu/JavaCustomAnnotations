@@ -30,7 +30,7 @@ public class Injector {
         if (_o instanceof SessionController) {
             
             SessionController sc = (SessionController)_o;
-            //Получаем описание управляемого объекта
+            //Получаем отражение (описание) управляемого объекта
             Class targetClass = sc.getClass();
             //Получаем описание всех полей управляемого объекта
             Field[] fields = targetClass.getFields();
@@ -48,15 +48,18 @@ public class Injector {
                             injectingInstatceClass.getDeclaredConstructors()[0];
                     //System.out.println(constructor.getParameterCount());
                     //Открывает доступ к конструктору
-                    constructor.setAccessible(true);  
+                    // constructor.setAccessible(true);
                     //Открывает доступ к полю
-                    field.setAccessible(true);
+                    //field.setAccessible(true);
                     //В управляемом объекте по ссылке из переменной sc
                     //находим поле, соответствующее описанию field,
                     //вызываем конструктор внедряемого типа,
                     //приводим полученную ссылку к нужному типу
                     //и инициализируем ею поле
                     field.set(sc, (injectingInstatceClass.cast(constructor.newInstance())));
+
+                    // JDK 1.8.0_100
+                    // JDK 1.8.0_201
                 }
             }
         }

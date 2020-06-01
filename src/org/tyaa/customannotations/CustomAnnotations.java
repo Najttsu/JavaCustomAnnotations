@@ -6,6 +6,8 @@
 package org.tyaa.customannotations;
 
 import java.lang.reflect.InvocationTargetException;
+
+// import org.tyaa.customannotations.bean.AnotherCookies;
 import org.tyaa.customannotations.container.Injector;
 import org.tyaa.customannotations.container.Tester;
 import org.tyaa.customannotations.controller.SessionController;
@@ -19,7 +21,7 @@ public class CustomAnnotations {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws ClassNotFoundException, IllegalArgumentException, IllegalAccessException, InstantiationException, InvocationTargetException {
+    public static void main(String[] args) throws ClassNotFoundException, IllegalArgumentException, IllegalAccessException, InstantiationException, InvocationTargetException, NoSuchMethodException {
         
         //DONE
         //1. Создать описание аннотации для маркировки точек внедрения
@@ -40,7 +42,7 @@ public class CustomAnnotations {
         //внедренного экземпляра Session
         //4. запустить приложение и проверить его работоспособность (не должно быть исключений)
         
-        
+        // IoC Container #1 for beans validation
         Tester t = new Tester();
         t.test(Class.forName("org.tyaa.customannotations.bean.Cookies"));
         t.test(Class.forName("org.tyaa.customannotations.bean.AnotherCookies"));
@@ -49,5 +51,12 @@ public class CustomAnnotations {
         SessionController sc = new SessionController();
         injector.addControlledInstance(sc);
         sc.doWork();
+
+        // AnotherCookies.id = 2;
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
     }
 }
